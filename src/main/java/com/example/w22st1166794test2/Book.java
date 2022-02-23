@@ -80,7 +80,7 @@ public class Book {
     }
 
     public void setPrice(double price) {
-        if (price > 0)
+        if (price > 0 && price < 2000)
             this.price = price;
         else
             throw new IllegalArgumentException("invalid input");
