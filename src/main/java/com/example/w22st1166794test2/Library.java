@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Library {
     private String address;
-    private ArrayList<String> books;
+    private ArrayList<Book> books;
 
     public Library(String streetAddress) {
         setAddress(streetAddress);
@@ -26,5 +26,9 @@ public class Library {
 
     public void setBooks(ArrayList<String> books) {
         this.books = books;
+    }
+
+    public void addBook(Book book){
+        books.add(book);
     }
 }
