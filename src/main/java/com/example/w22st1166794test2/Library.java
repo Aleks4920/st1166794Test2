@@ -54,7 +54,7 @@ public class Library {
     public ArrayList<String> getBooksInCategory(String category){
         ArrayList<String> booksInCategory = new ArrayList<String>();
         for (Book book : books){
-            if (book.getCategory() == category)
+            if (book.getCategory().equals(category))
                 booksInCategory.add(book.getTitle());
         }
         return booksInCategory;
