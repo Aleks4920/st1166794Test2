@@ -16,7 +16,8 @@ public class Library {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        if (address.length() >= 10)
+            this.address = address;
     }
 
     public ArrayList<String> getBooks() {
