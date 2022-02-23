@@ -11,10 +11,11 @@ public class Book {
 
     private final String[] categories = {"Mystery", "Thriller", "Horror", "Historical", "Romance", "Western", "Fantasy", "TextBook", "CookBook", "Self Help", "Fiction", "Indigenous"};
 
-    public Book(String title, String author, String isbn, String category) {
+    public Book(String title, String author, String isbn, double price, String category) {
         setTitle(title);
         setAuthor(author);
         setIsbn(isbn);
+        setPrice(price);
         setCategory(category);
     }
 
