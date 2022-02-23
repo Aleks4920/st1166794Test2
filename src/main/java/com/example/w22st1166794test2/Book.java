@@ -20,8 +20,11 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        if (!title.isEmpty())
+        if (title.length() >= 4){
+            title.trim();
             this.title = title;
+        }
+
         else
             throw new IllegalArgumentException("invalid input");
     }
