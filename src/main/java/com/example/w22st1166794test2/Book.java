@@ -3,12 +3,12 @@ package com.example.w22st1166794test2;
 public class Book {
     private String title;
     private String author;
-    private int isbn;
+    private String isbn;
     private String category;
     private double price;
 
 
-    public Book(String title, String author, int isbn, String category) {
+    public Book(String title, String author, String isbn, String category) {
         setTitle(title);
         setAuthor(author);
         setIsbn(isbn);
@@ -39,12 +39,22 @@ public class Book {
             throw new IllegalArgumentException("invalid input");
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
-        if (isbn > 0)
+
+    public static boolean isNumeric(String string) {
+        try {
+            Double.parseDouble(string);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
+
+    public void setIsbn(String isbn) {
+        if (isbn.length() == 13 && isNumeric(isbn))
             this.isbn = isbn;
         else
             throw new IllegalArgumentException("invalid input");
