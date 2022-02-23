@@ -1,5 +1,6 @@
 package com.example.w22st1166794test2;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import java.net.URL;
@@ -20,10 +21,30 @@ public class MainController implements Initializable{
     @FXML
     private Label valueBooksLabel;
 
+    @FXML
+    private Label ISBNLabel;
+
+
+    @FXML
+    private Label authorLabel;
+
+    @FXML
+    private Label categoryLabel;
+
+
+    @FXML
+    private Label priceLabel;
+
+    @FXML
+    private Label titleLabel;
+
+
+    private Library library;
+    private int numBooks;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        Library library = new Library("60 Worsley St, Barrie, ON, L4M 1L6");
+        library = new Library("60 Worsley St, Barrie, ON, L4M 1L6");
         Book book1 = new Book("Intro to Java","Jaret Wright","1234567891011",79.99,"TextBook");
         Book book2 = new Book("The Maid","Nita Prose","9780735245259",24.95,"Fiction");
         Book book3 = new Book("Atomic Habits","James Clear","9780735211292",21.88,"Self Help");
@@ -39,22 +60,45 @@ public class MainController implements Initializable{
 
 
         loadBooksData(library);
+
     }
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
     @FXML
     private void loadBooksData(Library library){
-        int numBooks = 0;
-        addressLabel.setText(library.geAddress());
 
-        for (Book book : library.getBooks()){
-            numBooks++;
-        }
+        addressLabel.setText(library.getAddress());
+
+        numBooks = library.getNumBooks();
         numberBooksLabel.setText(String.valueOf(numBooks));
 
-        valueBooksLabel.setText(String.valueOf(df.format(library.inventoryValue())));
+        valueBooksLabel.setText("$ " + String.valueOf(df.format(library.inventoryValue())));
+        nextBook();
+
+
 
     }
+     private int i = 0;
+    @FXML
+    void nextBook(){
+        Book book;
+
+        if (i < numBooks){
+            book = library.getBooks().remove(0);
+            i++;
+        }
+        else
+            return;
+
+        titleLabel.setText(book.getTitle());
+        authorLabel.setText(book.getAuthor());
+        ISBNLabel.setText(book.getIsbn());
+        categoryLabel.setText(book.getCategory());
+        priceLabel.setText(String.valueOf(df.format(book.getPrice())));
+    }
+
+
+
 
 }

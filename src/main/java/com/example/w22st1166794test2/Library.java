@@ -11,7 +11,7 @@ public class Library {
         this.books = new ArrayList<Book>();
     }
 
-    public String geAddress() {
+    public String getAddress() {
         return address;
     }
 
@@ -58,6 +58,16 @@ public class Library {
                 booksInCategory.add(book.getTitle());
         }
         return booksInCategory;
+    }
+
+    public int getNumBooks(){
+        int numBooks = 0;
+
+
+        for (Book book : getBooks()){
+            numBooks++;
+        }
+        return numBooks;
     }
 
 }
