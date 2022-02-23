@@ -51,10 +51,10 @@ public class Library {
         return categories;
     }
 
-    public ArrayList<String> getBooksInCategory(string category){
+    public ArrayList<String> getBooksInCategory(String category){
         ArrayList<String> booksInCategory = new ArrayList<String>();
         for (Book book : books){
-            if (book.getCategory == category)
+            if (book.getCategory() == category)
                 booksInCategory.add(book.getTitle());
         }
         return booksInCategory;
