@@ -9,7 +9,7 @@ public class Book {
     private String category;
     private double price;
 
-    private final String[] catigories = {"Mystery", "Thriller", "Horror", "Historical", "Romance", "Western", "Fantasy", "TextBook", "CookBook", "Self Help", "Fiction", "Indigenous"};
+    private final String[] categories = {"Mystery", "Thriller", "Horror", "Historical", "Romance", "Western", "Fantasy", "TextBook", "CookBook", "Self Help", "Fiction", "Indigenous"};
 
     public Book(String title, String author, String isbn, String category) {
         setTitle(title);
@@ -68,7 +68,7 @@ public class Book {
     }
 
     public void setCategory(String category) {
-        if (Arrays.asList(catigories).contains(category))
+        if (Arrays.asList(categories).contains(category))
             this.category = category;
         else
             throw new IllegalArgumentException("invalid input");
