@@ -21,7 +21,7 @@ public class Book {
 
     public void setTitle(String title) {
         if (title.length() >= 4){
-            title.trim();
+            title = title.trim();
             this.title = title;
         }
 
