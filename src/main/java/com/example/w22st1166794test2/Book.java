@@ -20,11 +20,9 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        if (title.length() >= 4){
-            title = title.trim();
+        title = title.trim();
+        if (title.length() >= 4)
             this.title = title;
-        }
-
         else
             throw new IllegalArgumentException("invalid input");
     }
@@ -34,7 +32,8 @@ public class Book {
     }
 
     public void setAuthor(String author) {
-        if (!author.isEmpty())
+        author = author.trim();
+        if (author.length() >= 2)
             this.author = author;
         else
             throw new IllegalArgumentException("invalid input");
