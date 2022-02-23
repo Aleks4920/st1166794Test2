@@ -1,5 +1,7 @@
 package com.example.w22st1166794test2;
 
+import java.util.Arrays;
+
 public class Book {
     private String title;
     private String author;
@@ -7,6 +9,7 @@ public class Book {
     private String category;
     private double price;
 
+    private final String[] catigories = {"Mystery", "Thriller", "Horror", "Historical", "Romance", "Western", "Fantasy", "TextBook", "CookBook", "Self Help", "Fiction", "Indigenous"};
 
     public Book(String title, String author, String isbn, String category) {
         setTitle(title);
@@ -65,7 +68,7 @@ public class Book {
     }
 
     public void setCategory(String category) {
-        if (!category.isEmpty())
+        if (Arrays.asList(catigories).contains(category))
             this.category = category;
         else
             throw new IllegalArgumentException("invalid input");
