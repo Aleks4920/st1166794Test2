@@ -33,6 +33,14 @@ public class Library {
     }
 
 
+    public double inventoryValue(){
+        double totalValue = 0;
+        for(Book book : books){
+            totalValue += book.getPrice();
+        }
+        return totalValue;
+    }
+
 
     public ArrayList<String> getCategories(){
         ArrayList<String> categories = new  ArrayList<String>();
@@ -42,4 +50,5 @@ public class Library {
         }
         return categories;
     }
+
 }
